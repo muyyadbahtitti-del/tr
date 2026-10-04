@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>آلة حاسبة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator" dir="ltr">
+    <div class="display">
+      <div id="history" class="history"></div>
+      <div id="current" class="current">0</div>
+    </div>
+    <div class="keys">
+      <button data-action="clear" class="fn">C</button>
+      <button data-action="delete" class="fn">⌫</button>
+      <button data-action="percent" class="fn">%</button>
+      <button data-op="÷" class="op">÷</button>
+
+      <button data-num="7">7</button>
+      <button data-num="8">8</button>
+      <button data-num="9">9</button>
+      <button data-op="×" class="op">×</button>
+
+      <button data-num="4">4</button>
+      <button data-num="5">5</button>
+      <button data-num="6">6</button>
+      <button data-op="−" class="op">−</button>
+
+      <button data-num="1">1</button>
+      <button data-num="2">2</button>
+      <button data-num="3">3</button>
+      <button data-op="+" class="op">+</button>
+
+      <button data-action="negate" class="fn">±</button>
+      <button data-num="0">0</button>
+      <button data-num=".">.</button>
+      <button data-action="equals" class="eq">=</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
