@@ -375,6 +375,7 @@ def shot_finale(img, t):
         L = tlayer(s[:n], font(MONO_B, 44), PINK); img.paste(L, (int(930 - L.width / 2) + 0, 330 - L.height // 2), L)
     slam(img, "LET'S BUILD", (930, 440), font(MONO_B, 78), GREEN, t, 18.9, 5, (10, 40, 30))
     slam(img, "SOMETHING.", (930, 525), font(MONO_B, 78), GREEN, t, 19.1, 5, (10, 40, 30))
+    slam(img, "- MUAYYAD", (930, 625), font(MONO_B, 62), CYAN, t, 19.35, 4, (10, 20, 50))
 
 def scene(t):
     img = Image.fromarray(BGN).convert("RGB")
@@ -385,6 +386,10 @@ def scene(t):
     elif t < 13.0: shot_hero(img, t)
     elif t < 16.5: shot_tunnel(img, t)
     else: shot_finale(img, t)
+    if t >= 3.4 and t < 19.3:  # persistent name tag, bottom-right
+        a = prog(t, 3.4, 3.9)
+        L = tlayer("MUAYYAD", font(MONO_B, 30), (255, 255, 255), 3, (30, 10, 70))
+        put(img, L, (L.width, L.height / 2), (W - 20, H - 34), 1.0, 0, .85 * a)
     return img
 
 # ---------------- post ----------------
@@ -544,7 +549,7 @@ def main():
     random.seed(3); np.random.seed(3)
     wav = OUT + ".wav"; make_audio(wav)
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav,
-           "-c:v", "libx264", "-preset", "medium", "-crf", "22", "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "192k",
+           "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-maxrate", "6M", "-bufsize", "12M", "-pix_fmt", "yuv420p", "-profile:v", "main", "-level", "4.0", "-g", "60", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2",
            "-movflags", "+faststart", "-t", str(DUR), OUT]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     only = os.environ.get("ONLY")
