@@ -57,19 +57,19 @@
   }
   .photo {
     display: block;
-    width: 36mm; height: 36mm;
+    width: 34mm; height: 34mm;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
     box-shadow: 0 0 0 5px rgba(20,184,166,.15);
-    margin: 0 auto 10mm;
+    margin: 0 auto 8mm;
   }
   aside h3 {
     font-size: 8.5pt;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 8mm 0 3mm;
+    margin: 6mm 0 2.6mm;
     font-weight: 700;
   }
   aside h3:first-of-type { margin-top: 0; }
@@ -96,6 +96,15 @@
     background: rgba(20,184,166,.14);
     border: 1px solid rgba(20,184,166,.35);
     color: #d9fbf6;
+  }
+
+  .soft li {
+    list-style: none; position: relative;
+    padding-left: 12px; margin-bottom: 1.6mm; font-size: 8.6pt;
+  }
+  .soft li::before {
+    content: ""; position: absolute; left: 0; top: .62em;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
   }
 
   .lang { margin-bottom: 3mm; }
@@ -181,6 +190,14 @@
     background: #eef2f8; padding: 1px 7px; border-radius: 4px;
   }
 
+  .sign { margin-top: 12mm; width: 55mm; break-inside: avoid; }
+  .sign-place { font-size: 8.8pt; color: var(--muted); }
+  .sign img { display: block; height: 15mm; margin: 2mm 0 1mm; mix-blend-mode: multiply; }
+  .sign-name {
+    border-top: 1px solid var(--ink); padding-top: 1mm;
+    font-size: 8.8pt; font-weight: 600;
+  }
+
   @media print {
     @page { size: A4; margin: 0; }
     body { background: none; }
@@ -232,9 +249,18 @@
       <div class="chips"><span>Git</span><span>Linux</span><span>Windows</span><span>Networking</span><span>MS Office</span></div>
     </div>
     <div class="skill-group">
-      <h4>Practices</h4>
-      <div class="chips"><span>Software Design</span><span>Troubleshooting</span><span>Tech Documentation</span></div>
+      <h4>Methods &amp; Practices</h4>
+      <div class="chips"><span>OOP</span><span>UML</span><span>Agile / Scrum</span><span>Software Testing</span><span>Software Design</span><span>Troubleshooting</span><span>Tech Documentation</span><span>IT Security &amp; GDPR Basics</span></div>
     </div>
+
+    <h3>Soft Skills</h3>
+    <ul class="soft">
+      <li>Teamwork &amp; collaboration</li>
+      <li>Clear communication</li>
+      <li>Intercultural competence</li>
+      <li>Analytical problem solving</li>
+      <li>Time management</li>
+    </ul>
 
     <h3>Languages</h3>
     <div class="lang">
@@ -362,6 +388,12 @@
         </div>
       </div>
     </section>
+
+    <div class="sign">
+      <div class="sign-place">Leipzig, October 2026</div>
+      <img src="signature.jpg" alt="Signature">
+      <div class="sign-name">Muayyad Bahtiti</div>
+    </div>
   </main>
 </div>
 </body>
