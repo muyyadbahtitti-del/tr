@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muayyad Bahtiti – CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c2433;
+    --muted: #5b6577;
+    --line: #e4e8ef;
+    --side: #14213d;
+    --side-ink: #e8edf6;
+    --side-muted: #9fb0cc;
+    --accent: #14b8a6;
+    --accent-soft: #e6f7f5;
+    --page: #ffffff;
+    --bg: #eef1f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 9.6pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: var(--page);
+    display: grid;
+    grid-template-columns: 70mm 1fr;
+    box-shadow: 0 10px 40px rgba(20, 33, 61, .15);
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside {
+    background: var(--side);
+    color: var(--side-ink);
+    padding: 14mm 8mm 12mm;
+  }
+  .monogram {
+    width: 30mm; height: 30mm;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    display: grid; place-items: center;
+    font-size: 28pt; font-weight: 800; letter-spacing: 1px;
+    color: #fff;
+    margin: 0 auto 10mm;
+    background: rgba(255,255,255,.04);
+  }
+  aside h3 {
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 8mm 0 3mm;
+    font-weight: 700;
+  }
+  aside h3:first-of-type { margin-top: 0; }
+  .contact li {
+    list-style: none;
+    display: flex; gap: 8px; align-items: flex-start;
+    margin-bottom: 2.6mm;
+    font-size: 8.6pt;
+    word-break: break-word;
+  }
+  .contact svg { flex: 0 0 13px; width: 13px; height: 13px; margin-top: 2px; fill: var(--accent); }
+  .contact a { color: var(--side-ink); text-decoration: none; }
+
+  .skill-group { margin-bottom: 3.5mm; }
+  .skill-group h4 {
+    font-size: 8.3pt; font-weight: 600; color: var(--side-muted);
+    margin-bottom: 1.5mm;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chips span {
+    font-size: 7.8pt;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(20,184,166,.14);
+    border: 1px solid rgba(20,184,166,.35);
+    color: #d9fbf6;
+  }
+
+  .lang { margin-bottom: 3mm; }
+  .lang .row { display: flex; justify-content: space-between; font-size: 8.6pt; }
+  .lang .row em { font-style: normal; color: var(--side-muted); font-size: 7.8pt; }
+  .bar { height: 4px; background: rgba(255,255,255,.12); border-radius: 4px; margin-top: 1.4mm; }
+  .bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+
+  /* ---------- Main ---------- */
+  main { padding: 14mm 12mm 12mm 11mm; }
+  header h1 {
+    font-size: 27pt; font-weight: 800; line-height: 1.05;
+    letter-spacing: -.5px; color: var(--side);
+  }
+  header h1 span { color: var(--accent); }
+  header .role {
+    margin-top: 2mm;
+    font-size: 11pt; font-weight: 600; color: var(--muted);
+    letter-spacing: .3px;
+  }
+  header .tagline {
+    margin-top: 3mm;
+    display: inline-block;
+    background: var(--accent-soft);
+    color: #0f766e;
+    font-size: 8.2pt; font-weight: 600;
+    padding: 3px 10px; border-radius: 999px;
+  }
+
+  section { margin-top: 7mm; }
+  section > h2 {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10.5pt; font-weight: 800;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--side);
+    margin-bottom: 3.5mm;
+  }
+  section > h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  section > h2::before {
+    content: ""; width: 8px; height: 8px; border-radius: 2px;
+    background: var(--accent); transform: rotate(45deg);
+  }
+
+  .summary { color: #374151; text-align: justify; }
+
+  .timeline { position: relative; padding-left: 6mm; }
+  .timeline::before {
+    content: ""; position: absolute; left: 1.2mm; top: 2mm; bottom: 2mm;
+    width: 2px; background: var(--line);
+  }
+  .item { position: relative; margin-bottom: 4.5mm; }
+  .item:last-child { margin-bottom: 0; }
+  .item::before {
+    content: ""; position: absolute; left: -6mm; top: 1.6mm;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--accent);
+  }
+  .item-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .item h3 { font-size: 10.2pt; font-weight: 700; color: var(--ink); }
+  .date {
+    flex: 0 0 auto;
+    font-size: 7.8pt; font-weight: 600; color: #0f766e;
+    background: var(--accent-soft);
+    padding: 1px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .org { font-size: 8.8pt; color: var(--muted); font-weight: 500; margin: .5mm 0 1.5mm; }
+  .item ul { padding-left: 4mm; }
+  .item li { margin-bottom: .8mm; color: #374151; }
+  .item li::marker { color: var(--accent); }
+
+  .projects { display: grid; grid-template-columns: 1fr; gap: 3mm; }
+  .project {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 2.6mm 3.5mm;
+  }
+  .project h3 { font-size: 9.8pt; font-weight: 700; }
+  .project p { color: #374151; margin-top: .6mm; }
+  .stack { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 1.6mm; }
+  .stack span {
+    font-size: 7.4pt; font-weight: 600; color: var(--side);
+    background: #eef2f8; padding: 1px 7px; border-radius: 4px;
+  }
+
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: none; }
+    .page { margin: 0; box-shadow: none; min-height: 594mm; }
+    .page-break { break-before: page; padding-top: 14mm; }
+    .item, .project { break-inside: avoid; }
+  }
+  @media screen and (max-width: 820px) {
+    .page { width: auto; min-height: 0; margin: 0; grid-template-columns: 1fr; }
+    main { padding: 24px 16px; }
+    aside { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside>
+    <div class="monogram">MB</div>
+
+    <h3>Contact</h3>
+    <ul class="contact">
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Leipzig, Germany
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        <a href="tel:+491739239257">+49 173 923 9257</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        <a href="mailto:muyyadbahtiti@gmail.com">muyyadbahtiti@gmail.com</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.3 18.3V10H5.7v8.3zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3.1-3.6a2.7 2.7 0 0 0-2.4 1.3V10h-2.5v8.3h2.5v-4.4c0-1.2.2-2.3 1.7-2.3s1.5 1.4 1.5 2.4v4.3z"/></svg>
+        <a href="https://linkedin.com/in/muayyad-bahtiti">linkedin.com/in/muayyad-bahtiti</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        <a href="https://github.com/muayyadbahtiti">github.com/muayyadbahtiti</a>
+      </li>
+    </ul>
+
+    <h3>Technical Skills</h3>
+    <div class="skill-group">
+      <h4>Programming</h4>
+      <div class="chips"><span>Python</span><span>Java</span><span>SQL</span><span>HTML/CSS</span><span>JavaScript</span></div>
+    </div>
+    <div class="skill-group">
+      <h4>Databases</h4>
+      <div class="chips"><span>MySQL</span><span>PostgreSQL</span><span>Relational Design</span></div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools &amp; Systems</h4>
+      <div class="chips"><span>Git</span><span>Linux</span><span>Windows</span><span>Networking</span><span>MS Office</span></div>
+    </div>
+    <div class="skill-group">
+      <h4>Practices</h4>
+      <div class="chips"><span>Software Design</span><span>Troubleshooting</span><span>Tech Documentation</span></div>
+    </div>
+
+    <h3>Languages</h3>
+    <div class="lang">
+      <div class="row">Arabic <em>Native</em></div>
+      <div class="bar"><i style="width:100%"></i></div>
+    </div>
+    <div class="lang">
+      <div class="row">German <em>Fluent</em></div>
+      <div class="bar"><i style="width:90%"></i></div>
+    </div>
+    <div class="lang">
+      <div class="row">English <em>Fluent</em></div>
+      <div class="bar"><i style="width:88%"></i></div>
+    </div>
+    <div class="lang">
+      <div class="row">Spanish <em>Working</em></div>
+      <div class="bar"><i style="width:60%"></i></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+    <header>
+      <h1>Muayyad <span>Bahtiti</span></h1>
+      <div class="role">IT Specialist · Application Development</div>
+      <div class="tagline">Open to junior software engineering &amp; IT roles · Remote / International</div>
+    </header>
+
+    <section>
+      <h2>Profile</h2>
+      <p class="summary">
+        Motivated IT Specialist completing vocational training (Ausbildung) as a Fachinformatiker in Germany,
+        with a solid foundation in software development, database design and IT systems. Fluent in English,
+        German and Arabic. Seeking a junior software engineering or IT role where I can apply practical
+        programming skills, contribute to real projects and keep growing in a remote or international environment.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <h3>IT Specialist Trainee (Vocational Training)</h3>
+            <span class="date">Sep 2023 – Present</span>
+          </div>
+          <div class="org">Z&amp;P Schulung · Leipzig, Germany</div>
+          <ul>
+            <li>Completing German vocational training (Fachinformatiker – Application Development / System Integration).</li>
+            <li>Developing software applications and practising modern programming concepts with Python, Java and web technologies.</li>
+            <li>Designing and managing relational databases, writing SQL queries and ensuring data integrity and normalisation.</li>
+            <li>Supporting IT infrastructure, troubleshooting hardware and software issues and documenting technical processes.</li>
+            <li>Collaborating on practical projects covering coding, testing and basic deployment workflows.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Interpreter (German – Arabic / Spanish)</h3>
+            <span class="date">Mar 2023 – Sep 2023</span>
+          </div>
+          <div class="org">Deutsch Spanisch e.V. · Germany</div>
+          <ul>
+            <li>Provided accurate interpretation and translation in professional and administrative settings.</li>
+            <li>Facilitated clear communication between German-speaking clients and Arabic- and Spanish-speaking individuals.</li>
+            <li>Supported documentation and coordination tasks in a multicultural environment.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Vocational Preparation Program</h3>
+            <span class="date">Feb 2021 – Aug 2021</span>
+          </div>
+          <div class="org">Joblinge gAG · Germany</div>
+          <ul>
+            <li>Took part in career orientation, professional skills training and workplace readiness activities.</li>
+            <li>Developed teamwork, time management and communication competencies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-break">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Task Management Web Application</h3>
+          <p>Web app with user authentication and full CRUD operations for task tracking.</p>
+          <div class="stack"><span>Python</span><span>Flask</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div>
+        </div>
+        <div class="project">
+          <h3>Relational Database Design</h3>
+          <p>Normalised inventory database for a small business, with complex queries, relationships and integrity constraints.</p>
+          <div class="stack"><span>MySQL</span><span>SQL</span><span>ER Modelling</span></div>
+        </div>
+        <div class="project">
+          <h3>System Automation Scripts</h3>
+          <p>Scripts for system monitoring, file management and routine automation on Linux.</p>
+          <div class="stack"><span>Python</span><span>Bash</span><span>Linux</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <h3>Vocational Training – IT Specialist (Fachinformatiker)</h3>
+            <span class="date">2023 – 2025</span>
+          </div>
+          <div class="org">Z&amp;P Schulung · Leipzig, Germany</div>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Online Course in Digital Marketing</h3>
+            <span class="date">Jul 2022 – Dec 2022</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>High School Diploma</h3>
+            <span class="date">2017 – 2020</span>
+          </div>
+          <div class="org">Sächsische Lehmbaugruppe · Germany</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
